@@ -7,12 +7,12 @@ const HomeButtonsGrid: FC = () => {
   let history = useHistory();
 
   return (
-    <IonRow className="homeGrid2">
-      <IonCol sizeSm="12" sizeLg="3">
-        <IonGrid >
-          <IonRow >
+    <IonRow className="homeSection">
+      <IonCol sizeSm="12" sizeMd="6" sizeLg="3">
+        <IonGrid>
+          <IonRow>
             {routes.slice(1).map(({ name, path, icon_img }) => (
-              <IonCol key={name} size="6" >
+              <IonCol key={name} size="6">
                 <IonCard
                   onClick={() => history.push(path)}
                   className="homeGridButton"

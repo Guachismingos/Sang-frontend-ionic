@@ -41,7 +41,7 @@ const routes: Route[] = [
   },
   {
     path: "/about",
-    name: "Quienes somos",
+    name: "¿Quiénes somos?",
     Component: About,
     icon_img: about_icon,
     childs: [],
