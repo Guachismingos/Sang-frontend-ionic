@@ -1,0 +1,7 @@
+{
+  "name": "sang-frontend-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

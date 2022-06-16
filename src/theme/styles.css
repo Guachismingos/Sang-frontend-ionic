@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/fonts/Quicksand.ttf");
+}
+
+* {
+  font-family: "Quicksand";
+}
+
+.homeGridButton {
+  aspect-ratio: 1;
+  border-radius: 20px;
+  border: 5px solid var(--ion-color-primary);
+  color: black;
+  font-size: 100%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homeGridImage {
+  width: 50%;
+}
