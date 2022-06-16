@@ -7,6 +7,11 @@
   font-family: "Quicksand";
 }
 
+.homeGrid2 {
+  display: flex;
+  justify-content: center;
+}
+
 .homeGridButton {
   aspect-ratio: 1;
   border-radius: 20px;
