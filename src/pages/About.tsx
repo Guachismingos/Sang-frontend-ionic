@@ -1,12 +1,14 @@
 import { FC } from "react";
-import { IonPage, IonContent } from "@ionic/react";
+import { IonPage, IonContent, IonGrid } from "@ionic/react";
 import Header from "../components/Header";
 
 const About: FC = () => {
   return (
     <IonPage>
       <Header title="Quienes somos" />
-      <IonContent fullscreen>About</IonContent>
+      <IonContent fullscreen>
+        <IonGrid class="mainCont"></IonGrid>
+      </IonContent>
     </IonPage>
   );
 };
