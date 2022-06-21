@@ -9,7 +9,7 @@ const Home: FC = () => {
     <IonPage>
       <Header title="Inicio" />
       <IonContent fullscreen>
-        <IonGrid class="homeMain">
+        <IonGrid class="mainCont">
           <HomeImagesSlide />
           <HomeButtonsGrid />
         </IonGrid>

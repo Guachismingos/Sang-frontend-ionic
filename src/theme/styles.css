@@ -7,8 +7,11 @@
   font-family: "Quicksand";
 }
 
-.homeMain {
-  margin-bottom: 100px;
+.mainCont {
+  background: url(../assets/images/footer-waves.png) no-repeat;
+  background-position: bottom;
+  background-size: 100% 15%;
+  height: 100%;
 }
 
 .homeSection {
