@@ -8,7 +8,7 @@ const HomeButtonsGrid: FC = () => {
 
   return (
     <IonRow className="homeSection">
-      <IonCol sizeSm="12" sizeMd="6" sizeLg="3">
+      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="3">
         <IonGrid>
           <IonRow>
             {routes.slice(1).map(({ name, path, icon_img }) => (

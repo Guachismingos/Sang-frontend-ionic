@@ -4,8 +4,8 @@ import Header from "../components/Header";
 
 const About: FC = () => {
   return (
-    <IonPage>
-      <Header title="Quienes somos" />
+    <IonPage className="animate__animated animate__fadeIn animate__faster">
+      <Header title="¿Quiénes somos?" />
       <IonContent fullscreen>
         <IonGrid class="mainCont"></IonGrid>
       </IonContent>

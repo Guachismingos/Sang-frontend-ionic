@@ -6,10 +6,10 @@ import HomeImagesSlide from "../components/home/HomeImagesSlide";
 
 const Home: FC = () => {
   return (
-    <IonPage>
+    <IonPage className="animate__animated animate__fadeIn animate__faster">
       <Header title="Inicio" />
-      <IonContent fullscreen>
-        <IonGrid class="mainCont">
+      <IonContent>
+        <IonGrid className="mainCont">
           <HomeImagesSlide />
           <HomeButtonsGrid />
         </IonGrid>
