@@ -1,8 +1,8 @@
 interface IFLabes {
-  id: string | null | undefined;
-  deposit: string | null | undefined;
-  water: string | null | undefined;
-  light: string | null | undefined;
-  taxes: string | null | undefined;
+  idFile: string | null | undefined;
+  depositFile: string | null | undefined;
+  waterFile: string | null | undefined;
+  lightFile: string | null | undefined;
+  taxesFile: string | null | undefined;
 }
 export default IFLabes;
