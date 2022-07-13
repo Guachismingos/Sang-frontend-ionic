@@ -4,10 +4,10 @@ interface FormValues {
   address: string;
   primaryPhone: string;
   secondaryPhone: string;
-  inputId: File | null | undefined;
-  inputDeposit: File | null | undefined;
-  inputWater: File | null | undefined;
-  inputlight: File | null | undefined;
-  inputTaxes: File | null | undefined;
+  idFile: string;
+  depositFile: string;
+  waterFile: string;
+  lightFile: string;
+  taxesFile: string;
 }
 export default FormValues;

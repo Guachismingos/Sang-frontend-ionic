@@ -10,15 +10,21 @@ import {
   IonListHeader,
   IonModal,
   IonTitle,
+  IonLoading,
   IonToolbar,
+  useIonToast,
 } from "@ionic/react";
 import { ChangeEvent, FC, FormEvent, useRef, useState } from "react";
 import FileInputField from "./FileInputField";
 import IFLabes from "../../interfaces/IFLabes";
 import useForm from "../../hooks/useForm";
+import { useCRUD } from "../../context/CRUDContext";
+import { useHistory } from "react-router";
 
 const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
   const modal = useRef<HTMLIonModalElement>(null);
+
+  const { newRequirement } = useCRUD();
 
   const { state, bind } = useForm({
     lastNames: "",
@@ -26,13 +32,20 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
     address: "",
     primaryPhone: "",
     secondaryPhone: "",
+    idFile: "",
+    depositFile: "",
+    waterFile: "",
+    lightFile: "",
+    taxesFile: "",
   });
+
+  const [loading, setLoading] = useState(false);
+
+  const [toast, dismissToast] = useIonToast();
 
   const { lastNames, email, address, primaryPhone, secondaryPhone } = state;
 
-  const [files, setFiles] = useState({
-    idFile: { file: null },
-  });
+  const [files, setFiles] = useState<{ id: string; file: File }[]>([]);
 
   const [labels, setlabels] = useState<IFLabes>({
     idFile: null,
@@ -42,16 +55,41 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
     taxesFile: null,
   });
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  let history = useHistory();
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
-    console.log({...state, ...files});
+    try {
+      await newRequirement(state, files);
+      modal.current.dismiss();
+      toast({
+        buttons: [{ text: "x", handler: () => dismissToast() }],
+        message: "Solicitud exitosa!!",
+        color: "success",
+        duration: 3000,
+      });
+      setLoading(false);
+      history.push("/home");
+    } catch (error) {
+      toast({
+        buttons: [{ text: "x", handler: () => dismissToast() }],
+        message: `Hubo un error en su solicitud (${error})`,
+        color: "danger",
+        duration: 3000,
+      });
+      setLoading(false);
+    }
   };
 
   const changeFile = (e: ChangeEvent<HTMLInputElement>) => {
-    setFiles((prevFiles) => ({
-      ...prevFiles,
-      [e.target.name]: e.target.files?.item(0),
-    }));
+    if (e.target.files?.length) {
+      const file = e.target.files.item(0);
+      setFiles((prevFiles) => [
+        ...prevFiles,
+        { id: e.target.name, file: file },
+      ]);
+    }
     setlabels((prevFiles) => ({
       ...prevFiles,
       [e.target.name]: e.target.files?.item(0)?.name,
@@ -63,7 +101,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
       <IonHeader>
         <IonToolbar color="primary">
           <IonButtons slot="start">
-            <IonButton onClick={() => modal.current?.dismiss()}>
+            <IonButton onClick={() => modal.current.dismiss()}>
               Cancelar
             </IonButton>
           </IonButtons>
@@ -83,6 +121,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
                 Apellidos:
               </IonLabel>
               <IonInput
+                required
                 type="text"
                 name="lastNames"
                 {...bind}
@@ -93,19 +132,32 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
               <IonLabel position="floating" className="label">
                 Correo:
               </IonLabel>
-              <IonInput type="email" name="email" {...bind} value={email} />
+              <IonInput
+                required
+                type="email"
+                name="email"
+                {...bind}
+                value={email}
+              />
             </IonItem>
             <IonItem>
               <IonLabel position="floating" className="label">
                 Dirección:
               </IonLabel>
-              <IonInput type="text" name="address" {...bind} value={address} />
+              <IonInput
+                required
+                type="text"
+                name="address"
+                {...bind}
+                value={address}
+              />
             </IonItem>
             <IonItem>
               <IonLabel position="floating" className="label">
                 Teléfono celular:
               </IonLabel>
               <IonInput
+                required
                 type="tel"
                 name="primaryPhone"
                 {...bind}
@@ -117,6 +169,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
                 Teléfono secundario:
               </IonLabel>
               <IonInput
+                required
                 type="tel"
                 name="secondaryPhone"
                 {...bind}
@@ -125,7 +178,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
             </IonItem>
             <FileInputField label={labels.idFile} name="id" show="Cédula">
               <input
-                style={{ display: "none" }}
+                required
+                style={{ opacity: 0, width: 1 }}
                 type="file"
                 id="id"
                 name="idFile"
@@ -138,7 +192,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
               show="Déposito"
             >
               <input
-                style={{ display: "none" }}
+                required
+                style={{ opacity: 0, width: 1 }}
                 type="file"
                 id="deposit"
                 name="depositFile"
@@ -151,7 +206,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
               show="Disponibilidad de agua"
             >
               <input
-                style={{ display: "none" }}
+                required
+                style={{ opacity: 0, width: 1 }}
                 type="file"
                 id="water"
                 name="waterFile"
@@ -164,7 +220,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
               show="Disponibilidad de luz"
             >
               <input
-                style={{ display: "none" }}
+                required
+                style={{ opacity: 0, width: 1 }}
                 type="file"
                 id="light"
                 name="lightFile"
@@ -177,7 +234,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
               show="Certificado de impuestos"
             >
               <input
-                style={{ display: "none" }}
+                required
+                style={{ opacity: 0, width: 1 }}
                 type="file"
                 id="taxes"
                 name="taxesFile"
@@ -194,6 +252,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
             Enviar
           </IonButton>
         </form>
+        <IonLoading isOpen={loading} message={"Cargando..."} />
       </IonContent>
     </IonModal>
   );

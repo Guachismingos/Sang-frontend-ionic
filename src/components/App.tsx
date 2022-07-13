@@ -18,6 +18,7 @@ import { Redirect, Route, Switch } from "react-router";
 
 import routes from "../router/routes";
 import { FC } from "react";
+import { CRUDProvider } from "../context/CRUDContext";
 
 setupIonicReact();
 
@@ -43,7 +44,9 @@ const App: FC = () => {
 
   return (
     <IonApp>
-      <GetRoutes />
+      <CRUDProvider>
+        <GetRoutes />
+      </CRUDProvider>
     </IonApp>
   );
 };
