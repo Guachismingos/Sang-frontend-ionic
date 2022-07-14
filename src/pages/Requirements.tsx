@@ -9,6 +9,7 @@ import RequirementSelection from "../components/requirements/RequirementSelectio
 
 const Requirements: FC = () => {
   const [requirementType, setRequirementType] = useState("0");
+  const [requirements, setRequirements] = useState([]);
 
   return (
     <IonPage className="animate__animated animate__fadeIn animate__faster">
