@@ -37,6 +37,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
     waterFile: "",
     lightFile: "",
     taxesFile: "",
+    type: parseInt(type),
   });
 
   const [loading, setLoading] = useState(false);

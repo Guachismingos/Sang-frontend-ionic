@@ -32,7 +32,7 @@ export const CRUDProvider = ({ children }: { children: ReactNode }) => {
       refValues = { ...refValues, [id]: storageRef.fullPath };
     });
     const refRequirement = doc(collection(db, "requirements"));
-    setDoc(refRequirement, refValues);    
+    setDoc(refRequirement, refValues);
     return refRequirement.id;
   };
 

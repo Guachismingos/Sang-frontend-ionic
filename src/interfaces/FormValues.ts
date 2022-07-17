@@ -9,5 +9,6 @@ interface FormValues {
   waterFile: string;
   lightFile: string;
   taxesFile: string;
+  type: number;
 }
 export default FormValues;
