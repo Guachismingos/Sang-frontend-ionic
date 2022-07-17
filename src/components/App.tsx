@@ -10,32 +10,43 @@ import "@ionic/react/css/typography.css";
 import "../theme/styles.css";
 import "../theme/variables.css";
 
-import { IonApp, setupIonicReact, IonRouterOutlet } from "@ionic/react";
+import "animate.css";
+
+import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router";
+import { Redirect, Route, Switch } from "react-router";
 
 import routes from "../router/routes";
 import { FC } from "react";
+import { CRUDProvider } from "../context/CRUDContext";
 
 setupIonicReact();
 
 const App: FC = () => {
   const GetRoutes: FC = () => {
     return (
-      <IonRouterOutlet>
-        <Redirect strict path="" to="/home" />
-        {routes.map(({ name, path, Component }) => (
-          <Route key={name} exact path={path} component={Component} />
-        ))}
-      </IonRouterOutlet>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Switch>
+            {routes.map(({ name, path, Component }) => (
+              <Route key={name} path={path} component={Component} />
+            ))}
+            <Route
+              path=""
+              render={() => <Redirect to="/home" />}
+              exact={true}
+            />
+          </Switch>
+        </IonRouterOutlet>
+      </IonReactRouter>
     );
   };
 
   return (
     <IonApp>
-      <IonReactRouter>
+      <CRUDProvider>
         <GetRoutes />
-      </IonReactRouter>
+      </CRUDProvider>
     </IonApp>
   );
 };

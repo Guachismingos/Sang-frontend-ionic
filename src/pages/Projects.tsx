@@ -1,12 +1,14 @@
 import { FC } from "react";
-import { IonPage, IonContent } from "@ionic/react";
+import { IonPage, IonContent, IonGrid } from "@ionic/react";
 import Header from "../components/Header";
 
 const Projects: FC = () => {
   return (
-    <IonPage>
+    <IonPage className="animate__animated animate__fadeIn animate__faster">
       <Header title="Proyectos" />
-      <IonContent fullscreen>Projects</IonContent>
+      <IonContent fullscreen>
+        <IonGrid class="mainCont"></IonGrid>
+      </IonContent>
     </IonPage>
   );
 };
