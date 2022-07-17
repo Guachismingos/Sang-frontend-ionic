@@ -6,6 +6,7 @@ import {
   IonLabel,
   IonList,
   IonRow,
+  IonGrid,
 } from "@ionic/react";
 import {
   waterOutline,
@@ -33,13 +34,14 @@ const RequirementsList: FC = () => {
 
   return (
     <IonRow className="homeSection">
-      <IonCol
-        sizeSm="12"
-        sizeMd="6"
-        sizeLg="4"
-        style={{ paddingRight: "20px" }}
-      >
-        <IonList>{getItems()}</IonList>
+      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="3">
+        <IonGrid>
+          <IonRow>
+            <IonCol size="12" style={{ paddingRight: "20px" }}>
+              <IonList>{getItems()}</IonList>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonCol>
     </IonRow>
   );
