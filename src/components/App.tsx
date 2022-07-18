@@ -1,3 +1,5 @@
+// import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -16,6 +18,8 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route, Switch } from "react-router";
 
+import { ScreenOrientation } from "@awesome-cordova-plugins/screen-orientation";
+
 import routes from "../router/routes";
 import { FC } from "react";
 import { CRUDProvider } from "../context/CRUDContext";
@@ -23,6 +27,8 @@ import { CRUDProvider } from "../context/CRUDContext";
 setupIonicReact();
 
 const App: FC = () => {
+  ScreenOrientation.lock(ScreenOrientation.ORIENTATIONS.PORTRAIT);
+
   const GetRoutes: FC = () => {
     return (
       <IonReactRouter>
