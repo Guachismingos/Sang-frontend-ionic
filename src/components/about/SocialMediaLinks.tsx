@@ -1,4 +1,4 @@
-import { IonCol, IonGrid, IonIcon, IonImg, IonRow } from "@ionic/react";
+import { IonCol, IonGrid, IonIcon, IonRow } from "@ionic/react";
 
 import {
   logoFacebook,
@@ -7,10 +7,12 @@ import {
   logoWhatsapp,
 } from "ionicons/icons";
 
-const GetItems = ({icon, link}: {icon: string, link: string}) => {
+const GetItems = ({ icon, link }: { icon: string; link: string }) => {
   return (
     <IonCol size="3">
-    <a href={link}><IonIcon className="mediaIcon" color="primary" icon={icon}/></a>
+      <a href={link}>
+        <IonIcon className="mediaIcon" color="primary" icon={icon} />
+      </a>
     </IonCol>
   );
 };
@@ -30,10 +32,10 @@ const SocialMediaLinks = () => {
           }}
         >
           <IonRow>
-            <GetItems link="" icon={logoFacebook}/>
-            <GetItems link="" icon={logoInstagram}/>
-            <GetItems link="" icon={logoWhatsapp}/>
-            <GetItems link="" icon={logoTwitter}/>
+            <GetItems link="" icon={logoFacebook} />
+            <GetItems link="" icon={logoInstagram} />
+            <GetItems link="" icon={logoWhatsapp} />
+            <GetItems link="" icon={logoTwitter} />
           </IonRow>
         </IonGrid>
       </IonCol>

@@ -7,12 +7,20 @@ const Info = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="12">
+            <h3 style={{ textAlign: "justify" }}>
+                Nosotros:{" "}
+                <small>
+                  Nuestra misión es satisfacer a nuestros clientes y poner
+                  nuestros servicios profesionaes a la orden para que logren sus
+                  objetivos de la manera más óptima e integral posible.
+                </small>
+              </h3>
               <h3 style={{ textAlign: "justify" }}>
                 Misión:{" "}
                 <small>
                   Nuestra misión es satisfacer a nuestros clientes y poner
                   nuestros servicios profesionaes a la orden para que logren sus
-                  objetivos de la manera más óptima en integral posible.
+                  objetivos de la manera más óptima e integral posible.
                 </small>
               </h3>
               <h3

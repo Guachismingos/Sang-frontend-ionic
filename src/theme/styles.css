@@ -3,7 +3,11 @@
   font-family: "Quicksand";
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +29,7 @@ h1, h2, h3, h4, h5 {
   background-position: bottom;
   background-size: 100% 15%;
   height: 100%;
-  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .homeSection {
@@ -81,4 +85,3 @@ h1, h2, h3, h4, h5 {
 .mediaIcon {
   font-size: 50px;
 }
-
