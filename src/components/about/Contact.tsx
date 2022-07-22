@@ -4,10 +4,12 @@ import { callOutline } from "ionicons/icons";
 const Contact = () => {
   return (
     <IonRow className="homeSection">
-      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="3">
+      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="6">
         <h1 style={{ textAlign: "center", paddingTop: "20px" }}>Contáctenos</h1>
         <IonItem>
-          <IonLabel>Teléfono 1: 8428-1470</IonLabel>
+          <IonLabel>
+            <a href="tel:8428-1470">Teléfono 1: 8428-1470</a>
+          </IonLabel>
           <IonIcon
             className="mediaIcon"
             color="primary"
@@ -16,7 +18,9 @@ const Contact = () => {
           />
         </IonItem>
         <IonItem>
-          <IonLabel>Teléfono 2: 6188-5469</IonLabel>
+          <IonLabel>
+            <a href="tel:6188-5469">Teléfono 2: 6188-5469</a>
+          </IonLabel>
           <IonIcon
             className="mediaIcon"
             color="primary"

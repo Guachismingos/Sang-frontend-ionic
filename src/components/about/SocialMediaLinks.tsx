@@ -20,7 +20,7 @@ const GetItems = ({ icon, link }: { icon: string; link: string }) => {
 const SocialMediaLinks = () => {
   return (
     <IonRow className="homeSection">
-      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="3">
+      <IonCol sizeSm="8" sizeMd="6" sizeLg="4" sizeXl="6">
         <h1 style={{ textAlign: "center", paddingTop: "20px" }}>
           Nuetras Redes
         </h1>

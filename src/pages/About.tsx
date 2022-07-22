@@ -5,6 +5,7 @@ import TopBanner from "../components/about/TopBanner";
 import Info from "../components/about/Info";
 import SocialMediaLinks from "../components/about/SocialMediaLinks";
 import Contact from "../components/about/Contact";
+import Location from "../components/about/Location";
 
 const About: FC = () => {
   return (
@@ -12,11 +13,12 @@ const About: FC = () => {
       <Header title="¿Quiénes somos?" />
       <IonContent fullscreen>
         <IonGrid>
-            <TopBanner />
-            <Info />
-            <SocialMediaLinks />
-            <Contact/>
-         </IonGrid>
+          <TopBanner />
+          <Info />
+          <SocialMediaLinks />
+          <Contact />
+          <Location />
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
