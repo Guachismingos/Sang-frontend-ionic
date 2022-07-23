@@ -38,6 +38,8 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
     lightFile: "",
     taxesFile: "",
     type: parseInt(type),
+    date: new Date().toDateString(),
+    status: 0
   });
 
   const [loading, setLoading] = useState(false);
