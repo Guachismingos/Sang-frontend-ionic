@@ -112,6 +112,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        //#region Form 
         <form onSubmit={onSubmit} style={{ padding: "30px" }}>
           <IonList>
             <IonListHeader
@@ -255,6 +256,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
             Enviar
           </IonButton>
         </form>
+        //#endregion
         <IonLoading isOpen={loading} message={"Cargando..."} />
       </IonContent>
     </IonModal>
