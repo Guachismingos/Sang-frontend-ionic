@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { IonPage, IonContent, IonGrid } from "@ionic/react";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
 
 const Projects: FC = () => {
   return (

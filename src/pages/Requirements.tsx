@@ -6,6 +6,7 @@ import FormModal from "../components/requirements/FormModal";
 import RequirementsList from "../components/requirements/RequirementsList";
 import NewRequirementButton from "../components/requirements/NewRequirementButton";
 import RequirementSelection from "../components/requirements/RequirementSelection";
+import VerifyModal from "../components/requirements/VerifyModal";
 
 const Requirements: FC = () => {
   const [requirementType, setRequirementType] = useState("0");
@@ -26,6 +27,7 @@ const Requirements: FC = () => {
             title={requirementType === "0" ? "Bono ordinario" : "Bono crédito"}
             type={requirementType}
           />
+          <VerifyModal/>
         </IonGrid>
       </IonContent>
     </IonPage>

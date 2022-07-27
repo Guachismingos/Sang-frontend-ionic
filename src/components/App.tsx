@@ -21,8 +21,9 @@ import { Redirect, Route, Switch } from "react-router";
 import { ScreenOrientation } from "@awesome-cordova-plugins/screen-orientation";
 
 import routes from "../router/routes";
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { CRUDProvider } from "../context/CRUDContext";
+import Loading from "./Loading";
 
 setupIonicReact();
 
@@ -50,9 +51,11 @@ const App: FC = () => {
 
   return (
     <IonApp>
+      <Suspense fallback={<Loading/>}>
       <CRUDProvider>
         <GetRoutes />
       </CRUDProvider>
+    </Suspense>
     </IonApp>
   );
 };

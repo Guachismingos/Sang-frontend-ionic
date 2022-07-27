@@ -8,6 +8,8 @@ import {
   getDocs,
   doc,
   setDoc,
+  where,
+  query,
 } from "firebase/firestore";
 
 import { getStorage, ref, uploadBytes } from "firebase/storage";
@@ -35,6 +37,8 @@ export {
   getDocs,
   doc,
   setDoc,
+  where,
+  query
 };
 
 export type { QuerySnapshot, DocumentSnapshot };

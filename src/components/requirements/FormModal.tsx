@@ -13,6 +13,7 @@ import {
   IonLoading,
   IonToolbar,
   useIonToast,
+  useIonLoading,
 } from "@ionic/react";
 import { ChangeEvent, FC, FormEvent, useRef, useState } from "react";
 import FileInputField from "./FileInputField";
@@ -39,7 +40,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
     taxesFile: "",
     type: parseInt(type),
     date: new Date().toDateString(),
-    status: 0
+    status: 0,
   });
 
   const [loading, setLoading] = useState(false);
@@ -60,20 +61,22 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
 
   let history = useHistory();
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     setLoading(true);
     e.preventDefault();
     try {
-      await newRequirement(state, files);
-      modal.current.dismiss();
-      toast({
-        buttons: [{ text: "x", handler: () => dismissToast() }],
-        message: "Solicitud exitosa!!",
-        color: "success",
-        duration: 3000,
-      });
-      setLoading(false);
-      history.push("/home");
+      newRequirement(state, files);
+      setTimeout(() => {
+        toast({
+          buttons: [{ text: "x", handler: () => dismissToast() }],
+          message: "Solicitud exitosa!!",
+          color: "success",
+          duration: 3000,
+        });
+        setLoading(false);
+        modal.current.dismiss();
+        history.goBack();
+      }, 3000);
     } catch (error) {
       toast({
         buttons: [{ text: "x", handler: () => dismissToast() }],
@@ -100,7 +103,7 @@ const FormModal: FC<{ type: string; title: string }> = ({ type, title }) => {
   };
 
   return (
-    <IonModal ref={modal} trigger="open-modal">
+    <IonModal ref={modal} trigger="open-modal-1">
       <IonHeader>
         <IonToolbar color="primary">
           <IonButtons slot="start">

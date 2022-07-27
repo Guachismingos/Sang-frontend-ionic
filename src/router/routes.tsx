@@ -1,15 +1,17 @@
+import { lazy } from "react";
 import { Route } from "../interfaces/Route";
-//Pages
-import Home from "../pages/Home";
-import Requirements from "../pages/Requirements";
-import Projects from "../pages/Projects";
-import Models from "../pages/Models";
-import About from "../pages/About";
 //Images
 import requirements_icon from "../assets/images/requirements_icon.png";
 import projects_icon from "../assets/images/projects_icon.png";
 import models_icon from "../assets/images/models_icon.png";
 import about_icon from "../assets/images/about_icon.png";
+
+//Pages
+const Home = lazy(() => import("../pages/Home"));
+const Requirements = lazy(() => import("../pages/Requirements"));
+const Projects = lazy(() => import("../pages/Projects"));
+const Models = lazy(() => import("../pages/Models"));
+const About = lazy(() => import("../pages/About"));
 
 const routes: Route[] = [
   {

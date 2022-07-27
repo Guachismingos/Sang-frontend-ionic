@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { IonPage, IonContent, IonGrid } from "@ionic/react";
 import Header from "../components/Header";
 import TopBanner from "../components/about/TopBanner";
@@ -6,6 +6,7 @@ import Info from "../components/about/Info";
 import SocialMediaLinks from "../components/about/SocialMediaLinks";
 import Contact from "../components/about/Contact";
 import Location from "../components/about/Location";
+import Loading from "../components/Loading";
 
 const About: FC = () => {
   return (

@@ -10,13 +10,13 @@ const NewRequirementButton: FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="6">
-              <IonCard id="open-modal" className="homeGridButton">
+              <IonCard id="open-modal-1" className="homeGridButton">
                 <IonImg src={requirements_icon} className="homeGridImage" />
                 Formulario aquí
               </IonCard>
             </IonCol>
             <IonCol size="6">
-              <IonCard id="" className="homeGridButton">
+              <IonCard id="open-modal-2" className="homeGridButton">
                 <IonImg src={about_icon} className="homeGridImage" />
                 Verifique su solicitud
               </IonCard>
