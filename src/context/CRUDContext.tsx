@@ -9,6 +9,8 @@ import {
   collection,
   query,
   where,
+  documentId,
+  getDocs
 } from "../firebase/firebase";
 import FormValues from "../interfaces/FormValues";
 import ICRUD from "../interfaces/ICRUD";
@@ -38,9 +40,9 @@ export const CRUDProvider = ({ children }: { children: ReactNode }) => {
     return refRequirement.id;
   };
 
-  const loadRequirementById = (idRef: string, callBack: string) => {
-    const q = query(collection(db, "requirements"), where("status", ">=", -10));
-    // return onSnapshot(q, callBack);
+  const loadRequirementById = (idRef: string) => {
+    const q = query(collection(db, "requirements"), where(documentId(), "==", idRef));
+    return getDocs(q); 
   };
 
   const value = { newRequirement, loadRequirementById };

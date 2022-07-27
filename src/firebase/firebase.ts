@@ -10,6 +10,7 @@ import {
   setDoc,
   where,
   query,
+  documentId
 } from "firebase/firestore";
 
 import { getStorage, ref, uploadBytes } from "firebase/storage";
@@ -38,7 +39,8 @@ export {
   doc,
   setDoc,
   where,
-  query
+  query,
+  documentId
 };
 
 export type { QuerySnapshot, DocumentSnapshot };
